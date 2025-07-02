@@ -1,13 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard - Bayu Bank')
+@section('title', 'Dashboard')
 
 @section('content')
 <div class="container">
     <div class="row mb-4">
         <div class="col-md-4">
             <div class="card text-white bg-primary mb-3">
-                <div class="card-header">Total Transaksi</div>
+                <div class="card-header d-flex align-items-center gap-2">
+                    <i class="bi bi-graph-up-arrow"></i>
+                    Total Transaksi
+                </div>
                 <div class="card-body">
                     <h5 class="card-title">{{ $totalTransactions ?? 0 }}</h5>
                     <p class="card-text">Jumlah total transaksi penarikan dana.</p>
@@ -16,7 +19,10 @@
         </div>
         <div class="col-md-4">
             <div class="card text-white bg-success mb-3">
-                <div class="card-header">Total Jumlah</div>
+                <div class="card-header d-flex align-items-center gap-2">
+                    <i class="bi bi-cash-stack"></i>
+                    Total Jumlah
+                </div>
                 <div class="card-body">
                     <h5 class="card-title">Rp {{ number_format($totalAmount ?? 0, 2, ',', '.') }}</h5>
                     <p class="card-text">Total nominal penarikan dana.</p>
@@ -25,7 +31,10 @@
         </div>
         <div class="col-md-4">
             <div class="card text-white bg-info mb-3">
-                <div class="card-header">Transaksi Terbaru</div>
+                <div class="card-header d-flex align-items-center gap-2">
+                    <i class="bi bi-clock-history"></i>
+                    Transaksi Terbaru
+                </div>
                 <div class="card-body">
                     <h5 class="card-title">{{ $recentTransactions->count() ?? 0 }}</h5>
                     <p class="card-text">Jumlah transaksi terbaru.</p>

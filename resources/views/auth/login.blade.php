@@ -7,22 +7,60 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background: url('https://upload.wikimedia.org/wikipedia/commons/3/3a/Universitas_Pamulang_2019.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background: linear-gradient(135deg, #004080 0%, #0073e6 100%);
+            color: #f8f9fa;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
         .login-container {
             margin-top: 10%;
             max-width: 400px;
-            background: rgba(255, 255, 255, 0.9);
+            background: #ffffff;
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            color: #212529;
+        }
+        .login-container label,
+        .login-container .form-label {
+            color: #495057;
+        }
+        .login-container .btn-primary {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+            color: #fff;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .login-container .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+        .login-container .form-control {
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            color: #212529;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .login-container .form-control:focus {
+            background-color: #fff;
+            color: #212529;
+            border-color: #86b7fe;
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
         }
     </style>
 </head>
 <body>
-    <div class="container d-flex justify-content-center">
-        <div class="login-container shadow">
-            <h3 class="text-center mb-4">Login</h3>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="login-container shadow w-100" style="max-width: 400px; transform: none; margin: auto;">
+            <div class="text-center mb-4">
+                <img src="{{ asset('images/bayu_bank_logo.png') }}" alt="Bayu Bank Logo" style="max-width: 150px; height: auto; margin-bottom: 15px;">
+                <h3>User Login</h3>
+            </div>
             <form method="POST" action="{{ route('loginUser') }}">
                 @csrf
 
@@ -33,7 +71,7 @@
                 @endif
 
                 <div class="mb-3">
-                    <label for="email" class="form-label">email</label>
+                    <label for="email" class="form-label">Email</label>
                     <input type="text" 
                            class="form-control @error('email') is-invalid @enderror" 
                            id="email" 
@@ -57,8 +95,13 @@
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Login</button>
             </form>
-            <p class="text-center mt-3 text-muted">Rekayasa Web | SI UNPAM</p>
+            <p class="text-center mt-3" style="color: #212529;">Email: bayu@gmail.com</p>
+            <p class="text-center" style="color: #212529;">Password: admin123</p>
         </div>
     </div>
+
+    <footer class="text-center mt-4 mb-3 w-100" style="color: #212529; position: fixed; bottom: 10px; left: 0;">
+        &copy; Bayu Bank 2025
+    </footer>
 </body>
 </html>

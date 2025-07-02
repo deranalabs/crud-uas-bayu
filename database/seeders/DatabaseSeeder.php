@@ -15,9 +15,12 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+        // Hapus user test jika ada
+        \App\Models\User::where('email', 'bayu@gmail.com')->delete();
+
         User::factory()->create([
             'name' => 'Test User',
-            'email' => 'test@example.com',
+            'email' => 'bayu@gmail.com',
         ]);
     }
 }

@@ -14,13 +14,15 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         // Hapus user admin jika ada
-        User::where('username', 'admin')->orWhere('email', 'admin@example.com')->delete();
+        User::where('email', 'bayu@gmail.com')->delete();
 
-        // Buat user admin baru
-        User::create([
-            'name' => 'Admin',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('admin123'),
-        ]);
+        // Buat user admin baru jika belum ada
+        if (!User::where('email', 'bayu@gmail.com')->exists()) {
+            User::create([
+                'name' => 'Admin',
+                'email' => 'bayu@gmail.com',
+                'password' => Hash::make('admin123'),
+            ]);
+        }
     }
 }
