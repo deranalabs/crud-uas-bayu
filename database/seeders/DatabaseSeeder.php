@@ -16,11 +16,15 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         // Hapus user test jika ada
-        \App\Models\User::where('email', 'bayu@gmail.com')->delete();
+        User::where('email', 'bayu@gmail.com')->delete();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'bayu@gmail.com',
-        ]);
+        // Buat user admin baru jika belum ada
+        if (!User::where('email', 'bayu@gmail.com')->exists()) {
+            User::create([
+                'name' => 'Admin',
+                'email' => 'bayu@gmail.com',
+                'password' => Hash::make('admin123'),
+            ]);
+        }
     }
 }
